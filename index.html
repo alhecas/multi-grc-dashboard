@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Regulatorik GRC Dashboard</title>
+    
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">Navigation</div>
+            <div class="sidebar-item active" onclick="showSection('overview')">
+                <span>Compliance-Übersicht</span>
+                <span id="complianceScore" class="sidebar-value">63%</span>
+            </div>
+            <div class="sidebar-item" onclick="showSection('alerts')">
+                <span>Kritische Maßnahmen</span>
+                <span class="sidebar-status-dot status-dot-critical"></span>
+            </div>
+            <div class="sidebar-item" onclick="showSection('kpis')">
+                <span>KPI-Details</span>
+            </div>
+            <div class="sidebar-item" onclick="showSection('risks')">
+                <span>Risiko Management</span>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-title">Regulatoriken (Top 3)</div>
+            <div id="sidebarRegulations"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <header>
+                <div>
+                    <h1>GRC Dashboard</h1>
+                    <p>Governance, Risk und Compliance-Management</p>
+                </div>
+                <div id="darkModeToggle" class="toggle-switch disabled" onclick="toggleDarkMode()">
+                    <span class="toggle-icon moon">🌙</span>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-icon sun">☀️</span>
+                </div>
+            </header>
+
+            <div id="overviewSection" class="section">
+                <h2 class="section-title">Compliance-Übersicht nach Regulatorik</h2>
+                <div class="compliance-overview" id="complianceOverview"></div>
+            </div>
+
+            <div id="alertsSection" class="section" style="display: none;">
+                <h2 class="section-title">Kritische Maßnahmen</h2>
+                <div id="alertsContainer"></div>
+            </div>
+
+            <div id="kpisSection" class="section" style="display: none;">
+                <h2 class="section-title">KPI-Details nach Regulatorik</h2>
+                <div class="tabs" id="regulationTabs"></div>
+                <div id="tabContents"></div>
+            </div>
+
+            <div id="risksSection" class="section" style="display: none;">
+                <h2 class="section-title">Risiko Management & Governance</h2>
+                <div id="riskContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="kpiModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</body>
+</html>
